@@ -1,12 +1,12 @@
-#include "Logger.h"
+#include "Log.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 
 namespace Hazel {
 
-	std::shared_ptr<spdlog::logger> Logger::s_CoreLogger;
-	std::shared_ptr<spdlog::logger> Logger::s_ClientLogger;
+	std::shared_ptr<spdlog::logger> Log::s_CoreLogger;
+	std::shared_ptr<spdlog::logger> Log::s_ClientLogger;
 
-	void Logger::Init()
+	void Log::Init()
 	{
 		spdlog::set_pattern("%^%T[%L] %n: %v%$");
 
