@@ -20,15 +20,15 @@ namespace Hazel {
 }
 
 //For engine core log macros
-#define LOG_CORE_TRACE(...) Hazel::Log::GetCoreLogger()->trace(__VA_ARGS__)
-#define LOG_CORE_INFO(...)  Hazel::Log::GetCoreLogger()->info(__VA_ARGS__)
-#define LOG_CORE_WARN(...)  Hazel::Log::GetCoreLogger()->warn(__VA_ARGS__)
-#define LOG_CORE_ERROR(...) Hazel::Log::GetCoreLogger()->error(__VA_ARGS__)
-#define LOG_CORE_FATAL(...) Hazel::Log::GetCoreLogger()->fatal(__VA_ARGS__)
+#define LOG_CORE_TRACE(...) ::Hazel::Log::GetCoreLogger()->trace(__VA_ARGS__)
+#define LOG_CORE_INFO(...)  ::Hazel::Log::GetCoreLogger()->info(__VA_ARGS__)
+#define LOG_CORE_WARN(...)  ::Hazel::Log::GetCoreLogger()->warn(__VA_ARGS__)
+#define LOG_CORE_ERROR(...) ::Hazel::Log::GetCoreLogger()->error(__VA_ARGS__)
+#define LOG_CORE_FATAL(...) ::Hazel::Log::GetCoreLogger()->fatal(__VA_ARGS__)
 
 //For client log macros
-#define LOG_TRACE(...) Hazel::Log::GetClientLogger()->trace(__VA_ARGS__)
-#define LOG_INFO(...)  Hazel::Log::GetClientLogger()->info(__VA_ARGS__)
-#define LOG_WARN(...)  Hazel::Log::GetClientLogger()->warn(__VA_ARGS__)
-#define LOG_ERROR(...) Hazel::Log::GetClientLogger()->error(__VA_ARGS__)
-#define LOG_FATAL(...) Hazel::Log::GetClientLogger()->fatal(__VA_ARGS__)
+#define LOG_TRACE(...) ::Hazel::Log::GetClientLogger()->trace(__VA_ARGS__)
+#define LOG_INFO(...)  ::Hazel::Log::GetClientLogger()->info(__VA_ARGS__)
+#define LOG_WARN(...)  ::Hazel::Log::GetClientLogger()->warn(__VA_ARGS__)
+#define LOG_ERROR(...) ::Hazel::Log::GetClientLogger()->error(__VA_ARGS__)
+#define LOG_FATAL(...) ::Hazel::Log::GetClientLogger()->fatal(__VA_ARGS__)
