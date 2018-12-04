@@ -8,7 +8,6 @@ int main(int argc, char** argv)
 {
 	Hazel::Log::Init();
 	LOG_CORE_WARN("Engine Ready");
-	LOG_INFO("hello");
 
 	Hazel::Application* app = Hazel::CreateApplication();
 	app->Run();
