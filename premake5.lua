@@ -16,13 +16,17 @@ project "Hazel"
     targetdir("bin/" .. outputDir .. "/%{prj.name}")
     objdir("bin-int/" .. outputDir .. "/%{prj.name}")
 
+	pchheader "hzpch.h"
+	pchsource "%{prj.name}/src/hzpch.cpp"
+
     files { 
         "%{prj.name}/src/**.h", 
         "%{prj.name}/src/**.cpp" 
     }
 
     includedirs { 
-        "%{prj.name}/vendor/spdlog/include" 
+        "%{prj.name}/vendor/spdlog/include",
+		"%{prj.name}/src"
     }
 
     filter "system:windows"
