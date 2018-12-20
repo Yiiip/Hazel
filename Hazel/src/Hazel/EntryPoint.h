@@ -7,7 +7,7 @@ extern Hazel::Application* Hazel::CreateApplication();
 int main(int argc, char** argv)
 {
 	Hazel::Log::Init();
-	LOG_CORE_WARN("Engine Ready");
+	LOG_CORE_INFO("Engine Ready");
 
 	Hazel::Application* app = Hazel::CreateApplication();
 	app->Run();
