@@ -1,12 +1,18 @@
 workspace "HazelByFelix"
     architecture "x64"
     configurations { 
-        "Debug", 
-        "Release", 
-        "Dist" 
+        "Debug",
+        "Release",
+        "Dist"
     }
 
 outputDir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Hazel/vendor/GLFW/include"
+
+include "Hazel/vendor/GLFW"
 
 project "Hazel"
     location "Hazel"
@@ -16,8 +22,8 @@ project "Hazel"
     targetdir("bin/" .. outputDir .. "/%{prj.name}")
     objdir("bin-int/" .. outputDir .. "/%{prj.name}")
 
-	pchheader "hzpch.h"
-	pchsource "%{prj.name}/src/hzpch.cpp"
+    pchheader "hzpch.h"
+    pchsource "Hazel/src/hzpch.cpp"
 
     files { 
         "%{prj.name}/src/**.h", 
@@ -26,7 +32,13 @@ project "Hazel"
 
     includedirs { 
         "%{prj.name}/vendor/spdlog/include",
-		"%{prj.name}/src"
+        "%{prj.name}/src",
+        "%{IncludeDir.GLFW}"
+    }
+
+    links {
+        "GLFW",
+        "opengl32.lib"
     }
 
     filter "system:windows"
@@ -94,7 +106,7 @@ project "Sandbox"
     filter "configurations:Release"
         defines "HZ_RELEASE"
         optimize "On"
-    
+
     filter "configurations:Dist"
         defines "HZ_DIST"
         optimize "On"
